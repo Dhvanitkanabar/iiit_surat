@@ -1,0 +1,104 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#ddd;
+}
+
+.container{
+  position:relative;
+  width:900px;
+  height:500px;
+  overflow:hidden;
+}
+
+.left{
+  position:absolute;
+  inset:0;
+  width:65%;
+  background:url("images/building.jpg") center/cover no-repeat;
+  z-index:1;
+}
+
+.bottom-left{
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:70%;
+  height:55%;
+  background:#124f45;
+  clip-path: polygon(0 40%, 100% 0, 100% 100%, 0 100%);
+  z-index:100;
+}
+.bottom-left:hover{
+  background:url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFYqoKTu_o3Zns2yExbst2Co84Gpc2Q1RJbA&s") center/cover no-repeat;
+  transition:0.5s;
+}
+
+.top-right{
+  position:absolute;
+  top:0;
+  right:0;
+  width:55%;
+  height:60%;
+  background:#d67ab3;
+  clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 85%);
+  z-index:104;
+}
+.top-right:hover{
+  background:url("https://ichef.bbci.co.uk/ace/standard/976/cpsprodpb/14235/production/_100058428_mediaitem100058424.jpg") center/cover no-repeat;
+  transition:0.5s;
+}
+
+.bottom-right{
+  position:absolute;
+  bottom:0;
+  right:0;
+  width:55%;
+  height:55%;
+  background:#bfe1df;
+  clip-path: polygon(0 15%, 100% 0, 100% 100%, 15% 100%);
+  z-index:105;
+}
+
+
+.bottom-right:hover{
+  background:url("https://static.vecteezy.com/system/resources/thumbnails/057/068/323/small/single-fresh-red-strawberry-on-table-green-background-food-fruit-sweet-macro-juicy-plant-image-photo.jpg") center/cover no-repeat;
+  transition:0.5s;
+}
+
+.text{
+  position:absolute;
+  inset:0;
+  font-weight:bold;
+  font-family:Arial, sans-serif;
+  color:white;
+  pointer-events:none;
+}
+
+.del{
+  position:absolute;
+  top:50%;
+  z-index: 99;
+  left:30%;
+  transform:translate(-50%,-50%);
+  font-size:110px;
+}
+
+.ve{
+  position:absolute;
+  top:53%;
+  left:59%;
+  z-index: 107;
+  transform:translate(-50%,-50%);
+  font-size:110px;
+}
+
+
