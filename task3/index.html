@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Headphone Advertisement</title>
+
+<style>
+
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body{
+  height:350vh; 
+  background: radial-gradient(circle at top,#0f0f0f,#000);
+  color:white;
+  overflow-x:hidden;
+}
+
+
+.hero{
+  position:fixed;
+  width:100%;
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+
+
+.title{
+  font-size:4rem;
+  letter-spacing:5px;
+  background:linear-gradient(90deg,#00f5ff,#ff00c8);
+  -webkit-background-clip:text;
+  color:transparent;
+  animation: glow 3s infinite alternate;
+}
+
+.subtitle{
+  margin-top:15px;
+  opacity:.7;
+  font-size:1.2rem;
+  letter-spacing:2px;
+}
+
+@keyframes glow{
+  from{ text-shadow:0 0 15px #00f5ff;}
+  to{ text-shadow:0 0 35px #ff00c8;}
+}
+
+
+.product-frame{
+  margin-top:50px;
+  width:420px;
+  height:420px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  transition:.6s ease;
+}
+
+.product-frame::before{
+  content:"";
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(0px);
+  border-radius:25px;
+  transition:.6s ease;
+  z-index:-1;
+}
+
+.product-frame img{
+  width:100%;
+  transition:.6s ease;
+}
+
+.product-frame:hover img{
+  transform:scale(1.25);
+}
+
+.product-frame:hover::before{
+  backdrop-filter:blur(20px);
+}
+
+
+.buy-btn{
+  margin-top:40px;
+  padding:15px 40px;
+  border:none;
+  border-radius:50px;
+  background:linear-gradient(90deg,#00f5ff,#ff00c8);
+  color:white;
+  font-size:1rem;
+  cursor:pointer;
+  transition:.4s ease;
+}
+
+.buy-btn:hover{
+  transform:scale(1.1);
+  box-shadow:0 0 20px #00f5ff;
+}
+
+
+@media(max-width:768px){
+  .title{ font-size:2.5rem; }
+  .product-frame{ width:300px; height:300px; }
+}
+
+</style>
+</head>
+<body>
+
+<section class="hero">
+
+  <h1 class="title">X-BEATS PRO</h1>
+  <p class="subtitle">Feel The Depth. Hear The Power.</p>
+
+  <div class="product-frame">
+      <img id="frameImage" src="frames/headphone1.png" alt="Headphone">
+  </div>
+
+  <button class="buy-btn">Buy Now</button>
+
+</section>
+
+<script>
+
+
+const frameImage = document.getElementById("frameImage");
+
+const totalFrames = 30; 
+const images = [];
+
+for(let i=1;i<=totalFrames;i++){
+    const img = new Image();
+    img.src = `frames/headphone${i}.png`;
+    images.push(img);
+}
+
+window.addEventListener("scroll", () => {
+    const scrollTop = window.scrollY;
+    const maxScroll = document.body.scrollHeight - window.innerHeight;
+    const scrollFraction = scrollTop / maxScroll;
+
+    const frameIndex = Math.min(
+        totalFrames - 1,
+        Math.floor(scrollFraction * totalFrames)
+    );
+
+    frameImage.src = images[frameIndex].src;
+});
+
+</script>
+
+</body>
+</html>
