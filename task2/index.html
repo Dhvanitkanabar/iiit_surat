@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weight Lifting Bench Showcase</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body{
+  background:#0f0f0f;
+  color:white;
+  overflow:hidden;
+}
+
+.container{
+  width:100%;
+  height:100vh;
+  position:relative;
+  overflow:hidden;
+}
+
+/* COMMON SECTION STYLE */
+.section{
+  position:absolute;
+  width:100%;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  transition:1s ease;
+  padding:40px;
+  text-align:center;
+}
+
+/* PRODUCT IMAGE */
+.product{
+  cursor:pointer;
+}
+
+.product img{
+  width:400px;
+  transition:0.5s;
+}
+
+.product:hover img{
+  transform:scale(1.05);
+}
+
+/* DETAILS */
+.content{
+  right:-100%;
+  background:#111;
+}
+
+h1{
+  font-size:40px;
+  margin-bottom:20px;
+}
+
+p{
+  max-width:700px;
+  opacity:0.8;
+  margin-bottom:20px;
+}
+
+button{
+  padding:12px 25px;
+  margin:10px;
+  border:none;
+  border-radius:30px;
+  cursor:pointer;
+  transition:0.3s;
+  font-weight:600;
+}
+
+.primary{
+  background:linear-gradient(45deg,#00c6ff,#0072ff);
+  color:white;
+}
+
+.secondary{
+  background:linear-gradient(45deg,#ff512f,#dd2476);
+  color:white;
+}
+
+button:hover{
+  transform:scale(1.1);
+}
+
+/* WHY SECTION */
+.why{
+  left:100%;
+  background:#151515;
+}
+
+/* TYPES SECTION */
+.types{
+  left:100%;
+  background:#1a1a1a;
+  overflow-y:auto;
+}
+
+.type-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+  width:100%;
+  margin-top:30px;
+}
+
+.card{
+  background:#222;
+  padding:20px;
+  border-radius:15px;
+  transition:0.4s;
+}
+
+.card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 0 20px rgba(0,255,255,0.4);
+}
+
+.card img{
+  width:100%;
+  border-radius:10px;
+  margin-bottom:10px;
+}
+
+/* BUY SECTION */
+.buy{
+  left:100%;
+  background:#101010;
+}
+
+.price{
+  font-size:30px;
+  color:#00ffcc;
+  margin:20px 0;
+}
+
+/* REVIEWS */
+.reviews{
+  margin-top:40px;
+  text-align:left;
+  max-width:700px;
+}
+
+.review{
+  background:#222;
+  padding:15px;
+  margin-bottom:15px;
+  border-radius:10px;
+}
+
+.stars{
+  color:gold;
+}
+
+/* ACTIVE STATES */
+.show-details .content{ right:0; }
+.show-why .why{ left:0; }
+.show-types .types{ left:0; }
+.show-buy .buy{ left:0; }
+
+</style>
+</head>
+
+<body>
+
+<div class="container" id="container">
+
+<!-- PRODUCT IMAGE -->
+<div class="section product" id="product">
+  <img src="https://image.made-in-china.com/2f0j00JqNrontCrapZ/Gym-Fitness-Equipment-Separate-Weight-Lifting-Bed-Adjustable-Stool.webp">
+  <h1>Adjustable Weight Lifting Bench</h1>
+  <p>Click to explore premium quality bench.</p>
+</div>
+
+<!-- DETAILS -->
+<div class="section content">
+  <h1>Product Details</h1>
+  <p>Heavy-duty steel frame, adjustable angles, high-density padding, anti-slip base.</p>
+  <button class="primary" onclick="goBuy()">Buy Now</button>
+  <button class="secondary" onclick="goWhy()">Why Should You Buy?</button>
+  <button onclick="goTypes()">View All Bench Types</button>
+</div>
+
+<!-- WHY -->
+<div class="section why">
+  <h1>Why Buy This Bench?</h1>
+  <p>✔ Durable Steel Build<br>
+     ✔ Multi-angle Adjustment<br>
+     ✔ Compact & Space Saving<br>
+     ✔ Professional Grade Stability</p>
+  <button onclick="goDetails()">⬅ Back</button>
+</div>
+
+<div class="section types">
+  <h1>All Types of Weightlifting Benches</h1>
+
+  <div class="type-grid">
+
+    <div class="card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSdmIdFUr1opLOpOlooIATDyqKfBKNr_w2vg&s">
+      <h3>1. Flat Bench</h3>
+      <p><b>Adv:</b> Stable, simple<br><b>Dis:</b> Limited angles</p>
+    </div>
+
+    <div class="card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQ2ymsGB1YhwMQ5K-YV87ZUIJVudYMyEoTCw&s">
+      <h3>2. Decline Bench</h3>
+      <p><b>Adv:</b> Targets lower chest<br><b>Dis:</b> Not beginner-friendly</p>
+    </div>
+
+    <div class="card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpFCvanCqwruzQWKVvJ1mQ35bZvSq0-G4ZXg&s">
+      <h3>3. Incline Bench</h3>
+      <p><b>Adv:</b> Upper chest focus<br><b>Dis:</b> Less stable</p>
+    </div>
+
+    <div class="card">
+      <img src="https://sfhealthtech.com/cdn/shop/products/E-comm_product_images_flash-34_d9ce347a-e208-42f0-977b-57d0d1e0c3b2.jpg?v=1605609414&width=1946">
+      <h3>4. Adjustable Bench</h3>
+      <p><b>Adv:</b> Multi-purpose<br><b>Dis:</b> Costly</p>
+    </div>
+
+    <div class="card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyptbS3SEimoo6u6ApbIlGvP81RN8jpNxSCw&s">
+      <h3>5. Olympic Bench</h3>
+      <p><b>Adv:</b> Heavy lifting<br><b>Dis:</b> Large size</p>
+    </div>
+
+    <div class="card">
+      <img src="https://contents.mediadecathlon.com/p2300406/7599dd818e36dedfd0b29fa120660da6/p2300406.jpg">
+      <h3>6. Foldable Bench</h3>
+      <p><b>Adv:</b> Space-saving<br><b>Dis:</b> Less durable</p>
+    </div>
+
+    <div class="card">
+      <img src="https://5.imimg.com/data5/CG/VS/MY-51517925/abdominal-bench-500x500.jpg">
+      <h3>7. Preacher Curl Bench</h3>
+      <p><b>Adv:</b> Biceps isolation<br><b>Dis:</b> Limited use</p>
+    </div>
+
+    <div class="card">
+      <img src="https://5.imimg.com/data5/CG/VS/MY-51517925/abdominal-bench-500x500.jpg">
+      <h3>8. Abdominal Bench</h3>
+      <p><b>Adv:</b> Core focus<br><b>Dis:</b> Specific use</p>
+    </div>
+
+    <div class="card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpVHuL68NnvYoGm1jGg5r9LWbmjHlTSD8HTw&s">
+      <h3>9. Roman Chair</h3>
+      <p><b>Adv:</b> Lower back strength<br><b>Dis:</b> Not for heavy press</p>
+    </div>
+
+    <div class="card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8-jGu4bnuL1zTdez5pV_58HFW_Z_TdVy2Mg&s">
+      <h3>10. Multi-Station Bench</h3>
+      <p><b>Adv:</b> Full-body workout<br><b>Dis:</b> Expensive</p>
+    </div>
+
+  </div>
+
+  <button onclick="goDetails()">⬅ Back</button>
+</div>
+
+<div class="section buy">
+  <h1>Purchase Now</h1>
+  <div class="price">₹14,999</div>
+  <button class="primary">Add to Cart</button>
+  <button onclick="goDetails()">⬅ Back</button>
+
+  <div class="reviews">
+    <h2>Customer Reviews</h2>
+
+    <div class="review">
+      <div class="stars">★★★★★</div>
+      <p>"Excellent quality and very stable!"</p>
+    </div>
+
+    <div class="review">
+      <div class="stars">★★★★☆</div>
+      <p>"Great value for money."</p>
+    </div>
+
+    <div class="review">
+      <div class="stars">★★★★★</div>
+      <p>"Perfect for home workouts."</p>
+    </div>
+
+  </div>
+</div>
+
+</div>
+
+<script>
+
+const container = document.getElementById("container");
+
+document.getElementById("product").onclick = () =>
+  container.className = "container show-details";
+
+function goWhy(){ container.className="container show-why"; }
+function goTypes(){ container.className="container show-types"; }
+function goBuy(){ container.className="container show-buy"; }
+function goDetails(){ container.className="container show-details"; }
+
+</script>
+
+</body>
+</html>
